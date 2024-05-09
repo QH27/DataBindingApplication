@@ -11,7 +11,7 @@ import com.example.databindingapplication.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding activityMainBinding;
-
+    private MyClickHandle myClickHandle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +22,11 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding = DataBindingUtil.setContentView(
                 this, R.layout.activity_main);
         activityMainBinding.setPerson(p1);
+
+
+        //Binding the Handler for Click Events
+        myClickHandle = new MyClickHandle(this);
+        activityMainBinding.setClickHandler(myClickHandle);
+
     }
 }
